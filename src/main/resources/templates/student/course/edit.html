@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('修改课程信息')"/>
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-post-edit" th:object="${course}">
+        <input id="id" name="id" type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+            <label class="col-sm-3 control-label is-required">课程名：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="courseName" id="courseName" th:field="*{courseName}"
+                       required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label is-required">学分：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="credit" id="credit" th:field="*{credit}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label is-required">任课老师：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="teacher" id="teacher" th:field="*{teacher}" required>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="include :: footer"/>
+<script type="text/javascript">
+    var prefix = ctx + "student/course";
+
+    function submitHandler() {
+        if ($.validate.form()) {
+            $.operate.save(prefix + "/edit", $('#form-post-edit').serialize());
+        }
+    }
+</script>
+</body>
+</html>

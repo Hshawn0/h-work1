@@ -1,0 +1,19 @@
+package com.swing.student;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * 启动类
+ *
+ * @author swing
+ */
+@MapperScan("com.swing.student.dao")
+@SpringBootApplication
+public class StudentApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(StudentApplication.class, args);
+        System.out.println("学生信息查询系统启动成功！");
+    }
+}
